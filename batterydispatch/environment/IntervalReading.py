@@ -75,6 +75,18 @@ class IntervalReading:
 
         return
 
+    def get_daily_generator(self):
+        '''Returns a generator function which yields a DataFrame for 1 day of load.
+        Note there is no guarantee that the day is in the same month.'''
+
+        self.DF['start_date'] = [s.date() for s in self.DF.start]
+
+        for day in list(set(self.DF.start_date)):
+            yield (self.DF[self.DF.start_date == day])
+
+        return
+
+
     def get_max_load(self):
         '''Returns the MAXIMUM value over the entire period (NOT any specific month.)'''
         return max(self.DF['value'])
@@ -82,3 +94,4 @@ class IntervalReading:
     def get_min_load(self):
         '''Returns the MINIMUM value over the entire period (NOT any specific month.)'''
         return min(self.DF['value'])
+

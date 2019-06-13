@@ -28,16 +28,16 @@ class Tariff:
         self.DEMAND = 20.05  # A10S summer demand
         self.peak_period = [datetime.time(hour=9, minute=30), datetime.time(hour=18, minute=30)]
 
-    def calculate_bill(self, bill_month):
+    def calculate_bill(self, bill_month, value='value'):
         '''Calculate the bill for the given bill month.
         Takes: Bill month should be given as a dataframe with value, timestamp(start) and duration_hrs columns.
         Returns: bill in dollars.'''
-        demand_charge = self.calculate_demand_charge(bill_month)
-        energy_charge = np.sum([self.calculate_energy_charge(x) for i, x in bill_month.iterrows()])
+        demand_charge = self.calculate_demand_charge(bill_month, value)
+        energy_charge = np.sum([self.calculate_energy_charge(x, value) for i, x in bill_month.iterrows()])
 
         return (demand_charge + energy_charge, (demand_charge, energy_charge))
 
-    def calculate_energy_charge(self, t):
+    def calculate_energy_charge(self, t, value='value'):
         '''Calculate the energy charge for the time step, a pandas series with start, duration_hrs, and value columns.
         Returns: Energy charge for that time step.'''
         # Check if peak-period and get energy rate
@@ -46,10 +46,10 @@ class Tariff:
         else:
             rate = self.ENERGY_OFFPEAK
 
-        return t.duration_hrs * t.value * rate
+        return t.duration_hrs * t[value] * rate
 
-    def calculate_demand_charge(self, bill_month):
+    def calculate_demand_charge(self, bill_month, value='value'):
         '''Calculate the demand charge for the given bill month.
         Takes: Bill month should be given as a dataframe with value, timestamp(start) and duration_hrs columns.
         Returns: bill in dollars.'''
-        return self.DEMAND * max(bill_month['value'])
+        return self.DEMAND * max(bill_month[value])
