@@ -7,6 +7,7 @@ from .Actions import Actions
 from .States import States
 from .Tariff import Tariff
 from .helpers import last_under, first_over
+from ..agent import agents
 
 class System:
     '''Class which monitors and executes the relationship between the agent and environment. Right now is dumb to the agent.
@@ -21,6 +22,7 @@ class System:
         self.bus = Bus()
         self.time = min(self.load.DF.start)
         self.policy = None
+        self.agent = agents.superAgent()
 
     def run_first_month(self, verbose=False):
         '''Run the first month as an episode; for testing purposes.'''
@@ -32,6 +34,17 @@ class System:
         load_generator = self.load.get_month_generator()
         for df in load_generator:
             self.run_episode(df, verbose)
+
+    def run_first_day(self, verbose=False):
+        '''Run the first day as an episode; for testing purposes.'''
+        df = next(self.load.get_daily_generator())
+        return self.run_episode(df, verbose, demand_over='day')
+
+    def run_all_days(self, verbose=False):
+        '''Run each month as episodes.'''
+        load_generator = self.load.get_daily_generator()
+        for df in load_generator:
+            self.run_episode(df, verbose, demand_over='day')
 
     def fit_states(self):
         '''This method fits the states and actions to the parameters of the bus and load in the system.
@@ -78,7 +91,14 @@ class System:
         '''Returns the transition matrix as a dataframe for the given action action.'''
         return pd.DataFrame(self.sas_probability[action], index=self.all_states, columns=self.all_states)
 
-    def run_episode(self, DF, verbose=False):
+    def set_agent(self, agent):
+        if issubclass(type(agent), agents.superAgent):
+           self.agent = agent
+        else:
+            raise AssertionError('agent must be a subclass of Agent.')
+
+
+    def run_episode(self, DF, verbose=False, demand_over='month'):
         '''
         Runs an episode using the month of load data passed to it as a DF.
         Best used as an internal function called by run_first_month or run_all_months.
@@ -97,6 +117,8 @@ class System:
         grid_flow['battery_action'] = 0
         grid_flow['load'] = 0
         grid_flow['state_of_charge'] = 0
+        grid_flow['net_flow'] = 0
+        grid_flow['state'] = ""
 
         # We will define each month as an episode
         for ix, t in DF.iterrows():
@@ -123,7 +145,7 @@ class System:
                 imagined_charge[a] = self.state.charge + battery_flow * period
 
             # battery_action should be the discharge rate in kW.
-            battery_action = self.policy(self.state, self.actions, period, self.policy_args)
+            battery_action = self.agent.get_action(self.state, self.actions, period)
 
             # Note calc-grid_flow takes care of battery discharge and affects the state of charge.
             net_flow, _ = self.bus.calc_grid_flow(t.value,
@@ -134,12 +156,13 @@ class System:
             # IF the net_flow exceeds the demand, then update the episodic demand
             demand = max(net_flow, demand)
 
-            grid_flow.loc[ix, 'value'] = net_flow
+            grid_flow.loc[ix, 'net_flow'] = net_flow
             grid_flow.loc[ix, 'load'] = t.value
             grid_flow.loc[ix, 'battery_action'] = battery_action
             grid_flow.loc[ix, 'state_of_charge'] = self.bus.battery.charge
+            grid_flow.loc[ix, 'state'] = str(self.state.as_tuple())
 
-            reward = -1 * self.tariff.calculate_energy_charge(grid_flow.loc[ix])
+            reward = -1 * self.tariff.calculate_energy_charge(grid_flow.loc[ix], 'net_flow')
             total_reward += reward
 
             first = False
@@ -155,10 +178,19 @@ class System:
                 print("net flow: {}, paid {}".format(net_flow, reward))
 
             # NEED TO FEED THE ACTION-REWARD BACK TO THE AGENT
+        if demand_over == 'month':
+            energy_factor = 1
+        elif demand_over == 'day':
+            energy_factor = 30
+        else:
+            ValueError("Demand can be calculated over the month or the day; demand_over {} not valid.".format(demand_over))
 
-        reward = self.tariff.calculate_demand_charge(grid_flow)
-        total_reward += reward
-        print("shaven demand: {} of peak {}".format(max(grid_flow.value), max(DF.value)))
+        # Scale the energy charge and add the demand charge
+        reward = -1 * self.tariff.calculate_demand_charge(grid_flow, 'net_flow')
+        total_reward = total_reward * energy_factor + reward
+        self.agent.end_episode(total_reward)
+
+        print("shaven demand: {} of peak {}, total reward: {}".format(max(grid_flow.net_flow), max(DF.value), total_reward))
         return grid_flow
         # NEED TO FEED FINAL REWARD BACK TO AGENT
 
