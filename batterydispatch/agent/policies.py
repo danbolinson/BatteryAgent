@@ -2,8 +2,14 @@ from ..environment.helpers import last_under, first_over
 import operator
 import numpy as np
 
-def _get_max_dict_val(d):
-    return max(d.items(), key=operator.itemgetter(1))[0]
+def _get_max_dict_val(d, default_val = None):
+    try:
+        return max(d.items(), key=operator.itemgetter(1))[0]
+    except ValueError:
+        if default_val is None:
+            raise
+        else:
+            return default_val
 
 def hard_limit(state, actions, period, demand_limit_dict):
     target = demand_limit_dict['target_demand']
@@ -28,16 +34,16 @@ def hard_limit(state, actions, period, demand_limit_dict):
     return action
 
 def greedy_epsilon(state, actions, period, args):
-    lr = args['learning_rate']
+    eta = args['eta']
     s_a_values = args['state_action_values']
 
 
-    if np.random.random() < lr:
+    if np.random.random() < eta:
         action = np.random.choice(actions.options)
     else:
         try:
             action = _get_max_dict_val(s_a_values[state.as_tuple()])
-        except KeyError:
+        except (ValueError, KeyError):
             action = 0
 
     return action

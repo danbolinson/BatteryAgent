@@ -97,6 +97,10 @@ class System:
         else:
             raise AssertionError('agent must be a subclass of Agent.')
 
+    def reset_system(self):
+        self.state.reset_state()
+        self.bus.battery.charge = self.state.charge
+
 
     def run_episode(self, DF, verbose=False, demand_over='month'):
         '''
@@ -104,7 +108,8 @@ class System:
         Best used as an internal function called by run_first_month or run_all_months.
         Initial episode conditions assume fully charged battery.
         '''
-        self.state.reset_state()
+        self.reset_system()
+
         total_energy = 0
         demand = 0
         total_reward = 0
@@ -162,7 +167,7 @@ class System:
             grid_flow.loc[ix, 'state_of_charge'] = self.bus.battery.charge
             grid_flow.loc[ix, 'state'] = str(self.state.as_tuple())
 
-            reward = -1 * self.tariff.calculate_energy_charge(grid_flow.loc[ix], 'net_flow')
+            reward = -1 * self.tariff.calculate_energy_step(grid_flow.loc[ix], 'net_flow')
             total_reward += reward
 
             first = False
@@ -177,7 +182,14 @@ class System:
                               battery_action), end=" | ")
                 print("net flow: {}, paid {}".format(net_flow, reward))
 
-            # NEED TO FEED THE ACTION-REWARD BACK TO THE AGENT
+            if battery_action <= 0:
+                hack_reward = 0
+            else:
+                hack_reward = -10
+            self.agent.collect_reward(hack_reward, self.state.as_tuple(), battery_action)
+
+        # If the epsidoe is daily, we need to scale the energy charge as though the entire month were observed
+        # to right-size hte reward. This picks the scaling factor.
         if demand_over == 'month':
             energy_factor = 1
         elif demand_over == 'day':
@@ -190,7 +202,7 @@ class System:
         total_reward = total_reward * energy_factor + reward
         self.agent.end_episode(total_reward)
 
-        print("shaven demand: {} of peak {}, total reward: {}".format(max(grid_flow.net_flow), max(DF.value), total_reward))
+        #print("shaven demand: {} of peak {}, total reward: {}".format(max(grid_flow.net_flow), max(DF.value), total_reward))
         return grid_flow
         # NEED TO FEED FINAL REWARD BACK TO AGENT
 
