@@ -33,11 +33,17 @@ class Tariff:
         Takes: Bill month should be given as a dataframe with value, timestamp(start) and duration_hrs columns.
         Returns: bill in dollars.'''
         demand_charge = self.calculate_demand_charge(bill_month, value)
-        energy_charge = np.sum([self.calculate_energy_charge(x, value) for i, x in bill_month.iterrows()])
+        energy_charge = self.calculate_energy_charge(bill_month, value)
 
         return (demand_charge + energy_charge, (demand_charge, energy_charge))
 
-    def calculate_energy_charge(self, t, value='value'):
+    def calculate_energy_charge(self, bill_month, value='value'):
+        '''Calculate the energy charge for the given bill month.
+           Takes: Bill month should be given as a dataframe with value, timestamp(start) and duration_hrs columns.
+           Returns: bill in dollars.'''
+        return np.sum([self.calculate_energy_step(x, value) for i, x in bill_month.iterrows()])
+
+    def calculate_energy_step(self, t, value='value'):
         '''Calculate the energy charge for the time step, a pandas series with start, duration_hrs, and value columns.
         Returns: Energy charge for that time step.'''
         # Check if peak-period and get energy rate

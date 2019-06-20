@@ -5,7 +5,7 @@ from .helpers import first_over, last_under
 class States:
     '''Stores all information related to the state and handles conversion of a continuous varaible into a state. '''
 
-    def __init__(self, hours=6, charge=4, load=10, demand=10):
+    def __init__(self, hours=6, charge=4, load=20, demand=20):
         # Define the State variables S_ which capture the possible state spaces
         self.S_hours = np.arange(0, hours)  # Integer between 0 and 23 implying the hour of the day
         self.S_charges = np.arange(0, charge) / (
@@ -79,7 +79,7 @@ class States:
     def reset_state(self):
         '''Resets teh state variables hour, charge, load, demand to their default values.'''
         self.hour = self.S_hours[0]
-        self.charge = self.S_charges[-1]
+        self.charge = self.S_charges[0]
         self.load = self.S_loads[0]
         self.demand = self.S_demand[0]
 

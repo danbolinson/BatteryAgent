@@ -4,7 +4,8 @@ from pathlib import Path
 import xml.etree.ElementTree
 from batterydispatch.environment.System import System
 from batterydispatch.environment.Battery import Battery
-from batterydispatch.agent.agents import ThresholdAgent, MonteCarloAgent
+from batterydispatch.agent.agents import ThresholdAgent, MonteCarloAgent, QAgent
+from batterydispatch.agent.policies import do_nothing
 
 import os, sys
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
@@ -19,7 +20,7 @@ fpath = fdir / floc / fname
 # Set any policy parameters and choose a policy
 TARGET_DEMAND = 8000
 agent = ThresholdAgent(TARGET_DEMAND)
-agent = MonteCarloAgent()
+
 
 # Set up the system
 system = System(fpath)
@@ -29,15 +30,38 @@ system.fit_states()
 system.set_agent(agent)
 system.initialize_A()
 
-# Run the first month and capture the grid_flow output
-grid_flow = system.run_first_month(verbose=True)
+# Run first day
+system.agent.set_policy(do_nothing)
+_, (demand, energy) = system.tariff.calculate_bill(system.run_first_day())
+default_reward = demand + energy * 30
+default_reward
 
-# Reinitialize A and run all months
-system.initialize_A()
-system.run_all_months()
+agent2 = QAgent()
+system.set_agent(agent2)
+system.agent.initialize_state_actions(system.state.list_all_states(), system.actions.options, -1*default_reward)
+system.agent.default_SA_estimate = default_reward * -1
 
-# Normalize A based on the learning (we lose the frequency of S --> S' this way - probably needs to change
-system.normalize_A()
+system.agent.set_greedy_policy(0.05)
+
+hist = []
+
+while True:
+    grid_flow = system.run_first_day()
+    peak_shave = max(grid_flow.load) - max(grid_flow.net_flow)
+    demand = system.tariff.calculate_demand_charge(grid_flow, 'net_flow')
+    energy = system.tariff.calculate_energy_charge(grid_flow, 'net_flow')
+    orig_demand = system.tariff.calculate_demand_charge(grid_flow, 'load')
+    orig_energy = system.tariff.calculate_energy_charge(grid_flow, 'load')
+
+    reward = demand + energy * 30
+    savings = orig_demand + orig_energy * 30 - reward
+    print("Original demand: {}, new demand:{}, total reward: {}, savings: {}".format(max(grid_flow.load),
+                                                                                     max(grid_flow.net_flow), reward,
+                                                                                     savings))
+    hist.append((peak_shave, reward, savings))
+    if max(grid_flow.load) > max(grid_flow.net_flow):
+        print("BOOM")
+        #break
 
 # Output the transition probability matrix A for the discharge Action and output to csv for review
 DF_discharge = system.A_as_dataframe(2000)
