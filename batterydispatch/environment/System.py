@@ -56,8 +56,6 @@ class System:
 
         self.state.fit_parameters(self.load.get_max_load(), battery_capacity, self.load.get_min_load())
 
-        self.actions.fit_actions(battery_capacity)
-
     def set_actions(self, charge_rates=2, charge_capacity=0.1):
         '''Sets teh number and size of actions based on the provied number of actions allowed and charge_capacity'''
         self.actions = Actions(charge_rates=charge_rates, charge_capacity=charge_capacity)
