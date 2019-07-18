@@ -45,6 +45,7 @@ class superAgent():
         self.default_SA_estimate = 0
         self.patience = None
         self.patience_counter = 0
+        self.policy_converged_flag = False
         self.past_S_A_values = deepcopy(self.S_A_values)
         self.discretizer = Discretizer()
         self.discrete = False
@@ -115,6 +116,7 @@ class superAgent():
     def end_episode(self, reward=0):
         pass
 
+
     def observe_sars(self, state, action, reward, next_state):
         pass
 
@@ -142,9 +144,10 @@ class PrioritizedSweepingAgent(superAgent):
         self.name = "Prioritized Sweeping Agent"
         self.set_policy(policy, args)
         self.learning_rate = learning_rate
-        self.patience = None
+        self.patience = patience
         self.P_queue = []
         self.n_sweeps = n_sweeps
+        self.sweep_depth = 150
         self.sensitivity = sensitivity
         self.transition_table = np.array([])
         self.reward_table = {}
@@ -159,6 +162,7 @@ class PrioritizedSweepingAgent(superAgent):
         super().initialize_state_actions(default, do_nothing_action, do_nothing_bonus)
 
         all_states = self.discretizer.list_all_states()
+        all_states.append('terminal')
         self.state_list = all_states
 
         all_actions = np.arange(self.actions.n)
@@ -188,48 +192,85 @@ class PrioritizedSweepingAgent(superAgent):
 
         # Discretize the space
         state = tuple(self.discretize_space(state))
-        next_state = tuple(self.discretize_space(next_state))
+        if next_state == 'terminal':
+            pass
+        else:
+            next_state = tuple(self.discretize_space(next_state))
 
         # Update the state-action-state transition
         self.transition_table[self.x_lookup[(state, action)], self.y_lookup[next_state]] += 1
-        if self.reward_table[self.y_lookup[state]] == 0:
-            self.reward_table[self.y_lookup[state]] = reward
-        else:
-            self.reward_table[self.y_lookup[state]] += \
-                self.learning_rate * (reward - self.reward_table[self.y_lookup[state]])
+
+        self.reward_table[self.y_lookup[state]] += \
+            self.learning_rate * (reward - self.reward_table[self.y_lookup[state]])
+
+        def get_greedy_value(state, default=np.nan):
+            'gets the greedy action value for the gien state'
+            if state is not "terminal":
+                greedy_next_action = _get_max_dict_val(self.S_A_values[state])
+                return self.S_A_values[state][greedy_next_action]
+            else:
+                return default
 
         # Get the change and priority of the change
-        greedy_next_action = _get_max_dict_val(self.S_A_values[next_state])
-        P = abs(reward + self.S_A_values[next_state][greedy_next_action] - self.S_A_values[state][action])
+        greedy_value = get_greedy_value(next_state, default=0)
+        P = abs(reward + greedy_value - self.S_A_values[state][action])
         insert_p(P)
+        self.S_A_values[state][action] += \
+            self.learning_rate * (reward + greedy_value - self.S_A_values[state][action])
+
+        if abs(reward)>1000:
+            print("end")
 
         # Do the planning step by emptying P_queue
+
         for i in range(self.n_sweeps):
             if self.P_queue == []:
                 break
 
             (state, action), _ = self.P_queue.pop(0)
             reward = self.reward_table[self.y_lookup[state]]
+            reward = 0
 
             p_sas = self.transition_table[self.x_lookup[(state, action)], :]
-            # Choose randomly from the past states based on their probability of being visited
-            p_sas = p_sas / np.sum(p_sas)
-            next_state = self.state_list[np.random.choice(np.arange(len(self.state_list)), p=p_sas)]
+            # Choose randomly from the next states based on their probability of being visited but ignoring terminal
+            p_sas = p_sas[:-1] / np.sum(p_sas[:-1])
 
-            greedy_next_action = _get_max_dict_val(self.S_A_values[next_state])
+            greedy_value = np.sum([p_sas[ix] * get_greedy_value(self.state_ix_lookup[int(ix)]) for ix in np.nditer(np.nonzero(p_sas))])
 
-            self.S_A_values[state][action] += \
-                                        self.learning_rate * (reward + self.S_A_values[next_state][greedy_next_action])
+            if greedy_value != np.nan:
+                self.S_A_values[state][action] += \
+                                        self.learning_rate * (reward + greedy_value - self.S_A_values[state][action])
 
             lead_to_s = state
             greedy_next_action = _get_max_dict_val(self.S_A_values[lead_to_s])
 
-            for ix in np.nditer(np.nonzero(self.transition_table[:, self.y_lookup[lead_to_s]])):
-                sa_cnt = self.transition_table[ix, self.y_lookup[lead_to_s]]
+            # Next we choose N actions to chase back, to limit execution time, by choosing based on probability of ending up there
+            likelihood = self.transition_table[:, self.y_lookup[lead_to_s]] \
+                         / np.sum(self.transition_table[:, self.y_lookup[lead_to_s]])
+            nonzero = np.nonzero(self.transition_table[:, self.y_lookup[lead_to_s]])[0]
+            if len(nonzero) <= self.sweep_depth:
+                selection = nonzero
+            else:
+                selection = tuple(np.random.choice(np.arange(self.transition_table.shape[0]),
+                                         size=self.sweep_depth,
+                                         replace=False,
+                                         p=likelihood))
+            for ix in selection:
+                #sa_cnt = self.transition_table[ix, self.y_lookup[lead_to_s]]
+
+                # Prioritize by taking top N only, randomply
+
                 (state, action) = self.sa_ix_lookup[int(ix)]
                 reward = self.reward_table[self.y_lookup[state]]
                 P = abs(reward + self.S_A_values[lead_to_s][greedy_next_action] - self.S_A_values[state][action])
                 insert_p(P)
+
+    def end_episode(self, reward=0):
+        if self.patience is not None:
+            try:
+                super().check_policy_convergence()
+            except PolicyConvergedError:
+                self.policy_converged_flag = True
 
 class QAgent(superAgent):
 
