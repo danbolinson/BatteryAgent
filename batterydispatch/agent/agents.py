@@ -36,6 +36,8 @@ class PolicyConvergedError(Exception):
     pass
 
 class superAgent():
+    '''superAgent provides the basic methods and properties that all (or at least many) agents will require.
+    All agents should be subclasses of the superAgent class. superAgent should not be used.'''
     def __init__(self):
         self.policy = None
         self.name = 'superclass'
@@ -52,6 +54,7 @@ class superAgent():
         self.actions = Space()
 
     def set_discretizer(self, discretizer):
+        '''Set the discretizer used by the agent to convert a continuous state space intoo a discret state space.'''
         assert isinstance(discretizer, Discretizer)
         self.discrete = True
         self.discretizer = discretizer
@@ -74,8 +77,10 @@ class superAgent():
 
         return self.policy(state, actions, period, self.policy_args)
 
-    def get_action(self, state, actions, period):
-        # This should probably be overridden by whatever the agent needs to do.
+    def get_action(self, state, actions=None, period=0.25):
+        ''' get_action is the base method agents use to take an action, given a state.
+        This should probably be overridden by whatever the agent needs to do.
+        Takes: a state space, an action space (NEEDS REMOVAL), and the length of the step in hours (NEEDS REMOVAL)'''
         return self._follow_policy(state, actions, period)
 
     def check_policy_convergence(self, increment_patience=True):
@@ -95,11 +100,14 @@ class superAgent():
         if self.patience_counter > self.patience:
             raise PolicyConvergedError
 
+        self.past_S_A_values = deepcopy(self.S_A_values)
+
     def set_greedy_policy(self, eta=0.2):
-        self.historical_S_A_values = self.S_A_values.copy()
+        '''Sets the greedy policy as the policy the agenet will follow, with epsilon given.
+        '''
         args = {
             'eta': eta,
-            'state_action_values': self.historical_S_A_values
+            'state_action_values': self.S_A_values
         }
 
         self.set_policy(greedy_epsilon, args)
@@ -200,8 +208,11 @@ class PrioritizedSweepingAgent(superAgent):
         # Update the state-action-state transition
         self.transition_table[self.x_lookup[(state, action)], self.y_lookup[next_state]] += 1
 
-        self.reward_table[self.y_lookup[state]] += \
-            self.learning_rate * (reward - self.reward_table[self.y_lookup[state]])
+        try:
+            self.reward_table[(state, action, next_state)] += \
+                self.learning_rate * (reward - self.reward_table[state, action, next_state])
+        except KeyError:
+            self.reward_table[(state, action, next_state)] = reward
 
         def get_greedy_value(state, default=np.nan):
             'gets the greedy action value for the gien state'
@@ -228,7 +239,7 @@ class PrioritizedSweepingAgent(superAgent):
                 break
 
             (state, action), _ = self.P_queue.pop(0)
-            reward = self.reward_table[self.y_lookup[state]]
+            #reward = self.reward_table[(state, action, ) STOPPED HERE, need to reconfigure so it correctly gets reward per hte new dict structure]
             reward = 0
 
             p_sas = self.transition_table[self.x_lookup[(state, action)], :]
