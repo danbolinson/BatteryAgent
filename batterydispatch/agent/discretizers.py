@@ -3,6 +3,7 @@ from gym.spaces.box import Box
 import itertools
 
 class Discretizer():
+    '''Converts state spaces into discrete state spaces.'''
     def __init__(self):
         pass
 
