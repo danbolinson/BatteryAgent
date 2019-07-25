@@ -1,6 +1,9 @@
-from ..environment_assets.helpers import last_under, first_over
 import operator
+
 import numpy as np
+
+from batterydispatch.agent.functions.helpers import last_under, first_over
+
 
 def _get_max_dict_val(d, default_val = None):
     '''Takes in a dicctionary d, and returns the key associated with the maximum value.
