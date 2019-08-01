@@ -20,6 +20,7 @@ class Box_Discretizer(Discretizer):
         self.box = box_space
         self.lbound = box_space.low
         self.ubound = box_space.high
+        self.ubound[1:] = self.ubound[1:]+1 # Need to avoid situation where max value returns error on digitize.
 
         if isinstance(N, int):
             N = np.ones(self.shape).astype(int) * N
@@ -32,7 +33,7 @@ class Box_Discretizer(Discretizer):
 
         step_size = (self.ubound - self.lbound) / N
 
-        self.buckets = [np.arange(self.lbound[i], self.ubound[i], step_size[i]) for i in range(N.size)]
+        self.buckets = [np.arange(self.lbound[i]+step_size[i], self.ubound[i]+step_size[i], step_size[i]) for i in range(N.size)]
 
     def discretize(self, space):
         ''' Converts an input space into the index of the buckets for each dimension of the Box.
@@ -44,8 +45,15 @@ class Box_Discretizer(Discretizer):
 
         assert space.shape == self.box.shape
 
-        discrete_space = np.array([self.buckets[i][np.digitize(s, self.buckets[i], right=True)-1]
+        try:
+            discrete_space = np.array([self.buckets[i][np.digitize(s, self.buckets[i], right=False)] #chagned to false for error checking
                                    for i, s in enumerate(space)])
+        except IndexError:
+            print("error")
+            print(space)
+            print(self.buckets)
+            raise
+
         return discrete_space
 
     def list_all_states(self):
