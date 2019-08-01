@@ -1,0 +1,2090 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20192.19.0621.1547                               -->
+<workbook source-build='2019.2.1 (20192.19.0621.1547)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts ignorable='true' predowngraded='true' />
+    <SheetIdentifierTracking ignorable='true' predowngraded='true' />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <datasources>
+    <datasource inline='true' name='Clipboard_20190727T182551' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Clipboard_20190727T182551' name='Clipboard_20190727T182551leaf'>
+            <connection class='textscan' directory='Data/1mbucz81v6rhl61ga7pqw0nsg7k8' temporary='yes' />
+          </named-connection>
+        </named-connections>
+        <relation connection='Clipboard_20190727T182551leaf' name='Clipboard_20190727T182551#txt' table='[Clipboard_20190727T182551#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator='&#9;'>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='duration' ordinal='1' />
+            <column datatype='datetime' name='start' ordinal='2' />
+            <column datatype='real' name='value' ordinal='3' />
+            <column datatype='real' name='duration_hrs' ordinal='4' />
+            <column datatype='date' name='start_date' ordinal='5' />
+            <column datatype='real' name='net_flow' ordinal='6' />
+            <column datatype='real' name='load' ordinal='7' />
+            <column datatype='real' name='battery_action' ordinal='8' />
+            <column datatype='real' name='state_of_charge' ordinal='9' />
+            <column datatype='string' name='state' ordinal='10' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;\\t&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[duration]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>duration</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[start]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>start</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[value]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>value</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration_hrs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[duration_hrs]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>duration_hrs</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[start_date]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>start_date</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>net_flow</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[net_flow]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>net_flow</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>load</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[load]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>load</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>battery_action</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[battery_action]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>battery_action</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_of_charge</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[state_of_charge]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>state_of_charge</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[Clipboard_20190727T182551#txt]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+      <column caption='Billing Period' datatype='datetime' name='[billing_period]' role='dimension' type='ordinal' />
+      <column caption='Duration' datatype='integer' name='[duration]' role='measure' type='quantitative' />
+      <column caption='Duration Hrs' datatype='real' name='[duration_hrs]' role='measure' type='quantitative' />
+      <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+      <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+      <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+      <column caption='Start Date' datatype='date' name='[start_date]' role='dimension' type='ordinal' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+      <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.380098' measure-ordering='alphabetic' measure-percentage='0.619902' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='Day 1 optimal' inline='true' name='Clipboard_20190719T152305' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Clipboard_20190719T152305' name='Clipboard_20190719T152305leaf'>
+            <connection class='textscan' directory='Data/13cm0ft0247qsf1a2iyce1rsaynm' temporary='yes' />
+          </named-connection>
+        </named-connections>
+        <relation connection='Clipboard_20190719T152305leaf' name='Clipboard_20190719T152305#txt' table='[Clipboard_20190719T152305#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator='&#9;'>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='duration' ordinal='1' />
+            <column datatype='datetime' name='start' ordinal='2' />
+            <column datatype='real' name='value' ordinal='3' />
+            <column datatype='real' name='duration_hrs' ordinal='4' />
+            <column datatype='date' name='start_date' ordinal='5' />
+            <column datatype='real' name='net_flow' ordinal='6' />
+            <column datatype='real' name='load' ordinal='7' />
+            <column datatype='real' name='battery_action' ordinal='8' />
+            <column datatype='real' name='state_of_charge' ordinal='9' />
+            <column datatype='string' name='state' ordinal='10' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;\\t&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[duration]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>duration</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[start]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>start</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[value]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>value</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration_hrs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[duration_hrs]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>duration_hrs</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[start_date]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>start_date</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>net_flow</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[net_flow]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>net_flow</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>load</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[load]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>load</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>battery_action</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[battery_action]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>battery_action</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_of_charge</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[state_of_charge]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>state_of_charge</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[Clipboard_20190719T152305#txt]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='final reward' datatype='real' name='[Calculation_599823188760887296]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='-384216.52499999997' />
+      </column>
+      <column caption='original reward' datatype='real' name='[Calculation_599823188761006081]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='-406791.825' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+      <column caption='Duration' datatype='integer' name='[duration]' role='measure' type='quantitative' />
+      <column caption='Duration Hrs' datatype='real' name='[duration_hrs]' role='measure' type='quantitative' />
+      <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+      <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+      <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+      <column caption='Start Date' datatype='date' name='[start_date]' role='dimension' type='ordinal' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+      <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.327896' measure-ordering='alphabetic' measure-percentage='0.672104' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource inline='true' name='Clipboard_20190729T151032' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Clipboard_20190729T151032' name='Clipboard_20190729T151032leaf'>
+            <connection class='textscan' directory='Data/0236ktt0svt9tk13r00jj0b7p7xc' temporary='yes' />
+          </named-connection>
+        </named-connections>
+        <relation connection='Clipboard_20190729T151032leaf' name='Clipboard_20190729T151032#txt' table='[Clipboard_20190729T151032#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator='&#9;'>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='duration' ordinal='1' />
+            <column datatype='datetime' name='start' ordinal='2' />
+            <column datatype='real' name='value' ordinal='3' />
+            <column datatype='real' name='duration_hrs' ordinal='4' />
+            <column datatype='date' name='start_date' ordinal='5' />
+            <column datatype='real' name='net_flow' ordinal='6' />
+            <column datatype='real' name='load' ordinal='7' />
+            <column datatype='real' name='battery_action' ordinal='8' />
+            <column datatype='real' name='state_of_charge' ordinal='9' />
+            <column datatype='string' name='state' ordinal='10' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;\\t&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[duration]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>duration</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[start]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>start</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[value]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>value</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration_hrs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[duration_hrs]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>duration_hrs</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[start_date]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>start_date</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>net_flow</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[net_flow]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>net_flow</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>load</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[load]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>load</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>battery_action</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[battery_action]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>battery_action</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_of_charge</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[state_of_charge]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>state_of_charge</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[Clipboard_20190729T151032#txt]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+      <column caption='Duration' datatype='integer' name='[duration]' role='measure' type='quantitative' />
+      <column caption='Duration Hrs' datatype='real' name='[duration_hrs]' role='measure' type='quantitative' />
+      <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+      <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+      <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+      <column caption='Start Date' datatype='date' name='[start_date]' role='dimension' type='ordinal' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+      <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.358108' measure-ordering='alphabetic' measure-percentage='0.641892' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource inline='true' name='Clipboard_20190728T231144' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='Clipboard_20190728T231144' name='Clipboard_20190728T231144leaf'>
+            <connection class='textscan' directory='C:/Users/ADMINI~1/AppData/Local/Temp/TableauTemp/11km6v20oqc0vj136flzw0116n3r' temporary='yes' />
+          </named-connection>
+        </named-connections>
+        <relation connection='Clipboard_20190728T231144leaf' name='Clipboard_20190728T231144#txt' table='[Clipboard_20190728T231144#txt]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator='&#9;'>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='duration' ordinal='1' />
+            <column datatype='datetime' name='start' ordinal='2' />
+            <column datatype='real' name='value' ordinal='3' />
+            <column datatype='real' name='duration_hrs' ordinal='4' />
+            <column datatype='date' name='start_date' ordinal='5' />
+            <column datatype='real' name='net_flow' ordinal='6' />
+            <column datatype='real' name='load' ordinal='7' />
+            <column datatype='real' name='battery_action' ordinal='8' />
+            <column datatype='real' name='state_of_charge' ordinal='9' />
+            <column datatype='string' name='state' ordinal='10' />
+          </columns>
+        </relation>
+        <refresh increment-key='' incremental-updates='false' />
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;\\t&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[duration]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>duration</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[start]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>start</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>value</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[value]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>value</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>duration_hrs</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[duration_hrs]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>duration_hrs</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>start_date</remote-name>
+            <remote-type>133</remote-type>
+            <local-name>[start_date]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>start_date</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>date</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>net_flow</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[net_flow]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>net_flow</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>load</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[load]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>load</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>battery_action</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[battery_action]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>battery_action</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state_of_charge</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[state_of_charge]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>state_of_charge</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>state</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[state]</local-name>
+            <parent-name>[Clipboard_20190728T231144#txt]</parent-name>
+            <remote-alias>state</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+      <column caption='Billing Period' datatype='datetime' name='[billing_period]' role='dimension' type='ordinal' />
+      <column caption='Duration' datatype='integer' name='[duration]' role='measure' type='quantitative' />
+      <column caption='Duration Hrs' datatype='real' name='[duration_hrs]' role='measure' type='quantitative' />
+      <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+      <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+      <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+      <column caption='Start Date' datatype='date' name='[start_date]' role='dimension' type='ordinal' />
+      <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+      <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+      <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+      <extract count='-1' enabled='true' units='records'>
+        <connection access_mode='readonly' authentication='auth-none' author-locale='en_US' class='hyper' dbname='Data/Results.twb Files/Clipboard_20190728T231144.hyper' default-settings='yes' schema='Extract' sslmode='' tablename='Extract' update-time='07/29/2019 07:47:47 PM' username='tableau_internal_user'>
+          <relation name='Extract' table='[Extract].[Extract]' type='table' />
+          <refresh increment-key='' incremental-updates='false'>
+            <refresh-event add-from-file-path='Clipboard_20190728T231144' increment-value='%null%' refresh-type='create' rows-inserted='96' timestamp-start='2019-07-29 19:47:47.364' />
+          </refresh>
+          <metadata-records>
+            <metadata-record class='column'>
+              <remote-name>F1</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[F1]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>F1</remote-alias>
+              <ordinal>0</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>96</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>duration</remote-name>
+              <remote-type>20</remote-type>
+              <local-name>[duration]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>duration</remote-alias>
+              <ordinal>1</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>integer</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>start</remote-name>
+              <remote-type>135</remote-type>
+              <local-name>[start]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>start</remote-alias>
+              <ordinal>2</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>datetime</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>96</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>value</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[value]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>value</remote-alias>
+              <ordinal>3</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>27</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>duration_hrs</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[duration_hrs]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>duration_hrs</remote-alias>
+              <ordinal>4</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>start_date</remote-name>
+              <remote-type>133</remote-type>
+              <local-name>[start_date]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>start_date</remote-alias>
+              <ordinal>5</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>date</local-type>
+              <aggregation>Year</aggregation>
+              <approx-count>1</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>net_flow</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[net_flow]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>net_flow</remote-alias>
+              <ordinal>6</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>17</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>load</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[load]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>load</remote-alias>
+              <ordinal>7</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>27</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>battery_action</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[battery_action]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>battery_action</remote-alias>
+              <ordinal>8</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>5</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state_of_charge</remote-name>
+              <remote-type>5</remote-type>
+              <local-name>[state_of_charge]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>state_of_charge</remote-alias>
+              <ordinal>9</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>real</local-type>
+              <aggregation>Sum</aggregation>
+              <approx-count>37</approx-count>
+              <contains-null>true</contains-null>
+            </metadata-record>
+            <metadata-record class='column'>
+              <remote-name>state</remote-name>
+              <remote-type>129</remote-type>
+              <local-name>[state]</local-name>
+              <parent-name>[Extract]</parent-name>
+              <remote-alias>state</remote-alias>
+              <ordinal>10</ordinal>
+              <family>Clipboard_20190728T231144#txt</family>
+              <local-type>string</local-type>
+              <aggregation>Count</aggregation>
+              <approx-count>72</approx-count>
+              <contains-null>true</contains-null>
+              <collation flag='0' name='LEN_RUS' />
+            </metadata-record>
+          </metadata-records>
+        </connection>
+      </extract>
+      <layout dim-ordering='alphabetic' dim-percentage='0.376689' measure-ordering='alphabetic' measure-percentage='0.623311' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='Graphs'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column-instance column='[state]' derivation='Attribute' name='[attr:state:nk]' pivot='key' type='nominal' />
+            <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+            <column-instance column='[start]' derivation='None' name='[none:start:qk]' pivot='key' type='quantitative' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+            <column-instance column='[battery_action]' derivation='Sum' name='[sum:battery_action:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state_of_charge]' derivation='Sum' name='[sum:state_of_charge:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190728T231144].[sum:battery_action:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+            </encodings>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190728T231144].[sum:state_of_charge:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190728T231144].[sum:battery_action:qk] + [Clipboard_20190728T231144].[sum:state_of_charge:qk])</rows>
+        <cols>[Clipboard_20190728T231144].[none:start:qk]</cols>
+      </table>
+      <simple-id uuid='{62352AC0-F1AE-49FA-BAD5-69A68D827ADC}' />
+    </worksheet>
+    <worksheet name='Graphs (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column-instance column='[state]' derivation='Attribute' name='[attr:state:nk]' pivot='key' type='nominal' />
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+            <column-instance column='[start]' derivation='None' name='[none:start:qk]' pivot='key' type='quantitative' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[load]' derivation='Sum' name='[sum:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Sum' name='[sum:net_flow:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[Clipboard_20190728T231144].[sum:net_flow:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[Clipboard_20190728T231144].[sum:net_flow:qk]' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+              <color column='[Clipboard_20190728T231144].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190728T231144].[sum:load:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+              <color column='[Clipboard_20190728T231144].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190728T231144].[sum:net_flow:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+              <color column='[Clipboard_20190728T231144].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190728T231144].[sum:load:qk] + [Clipboard_20190728T231144].[sum:net_flow:qk])</rows>
+        <cols>[Clipboard_20190728T231144].[none:start:qk]</cols>
+      </table>
+      <simple-id uuid='{F70FA6CE-D346-4136-9680-EBBD32BBE3EC}' />
+    </worksheet>
+    <worksheet name='Graphs(optimal)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column-instance column='[state]' derivation='Attribute' name='[attr:state:nk]' pivot='key' type='nominal' />
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+            <column-instance column='[start]' derivation='None' name='[none:start:qk]' pivot='key' type='quantitative' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[load]' derivation='Sum' name='[sum:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Sum' name='[sum:net_flow:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[Clipboard_20190728T231144].[sum:net_flow:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[Clipboard_20190728T231144].[sum:net_flow:qk]' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+              <color column='[Clipboard_20190728T231144].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190728T231144].[sum:load:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+              <color column='[Clipboard_20190728T231144].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190728T231144].[sum:net_flow:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <lod column='[Clipboard_20190728T231144].[attr:state:nk]' />
+              <color column='[Clipboard_20190728T231144].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190728T231144].[sum:load:qk] + [Clipboard_20190728T231144].[sum:net_flow:qk])</rows>
+        <cols>[Clipboard_20190728T231144].[none:start:qk]</cols>
+      </table>
+      <simple-id uuid='{69663F74-D391-4332-9407-0AB80C09A3D4}' />
+    </worksheet>
+    <worksheet name='Optimal'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Day 1 optimal' name='Clipboard_20190719T152305' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190719T152305'>
+            <column caption='final reward' datatype='real' name='[Calculation_599823188760887296]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='-384216.52499999997' />
+            </column>
+            <column caption='original reward' datatype='real' name='[Calculation_599823188761006081]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='-406791.825' />
+            </column>
+            <column-instance column='[Calculation_599823188761006081]' derivation='Avg' name='[avg:Calculation_599823188761006081:qk]' pivot='key' type='quantitative' />
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_599823188760887296]' derivation='Max' name='[max:Calculation_599823188760887296:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_599823188761006081]' derivation='Max' name='[max:Calculation_599823188761006081:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[load]' derivation='Max' name='[max:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Max' name='[max:net_flow:qk]' pivot='key' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[Clipboard_20190719T152305].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190719T152305].[max:load:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190719T152305].[max:net_flow:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190719T152305].[max:Calculation_599823188760887296:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190719T152305].[max:Calculation_599823188761006081:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[Clipboard_20190719T152305].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[Clipboard_20190719T152305].[max:load:qk]&quot;</bucket>
+              <bucket>&quot;[Clipboard_20190719T152305].[max:net_flow:qk]&quot;</bucket>
+              <bucket>&quot;[Clipboard_20190719T152305].[avg:Calculation_599823188761006081:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[Clipboard_20190719T152305].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Clipboard_20190719T152305].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[Clipboard_20190719T152305].[:Measure Names]</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{1F1F4A92-8738-41AB-AC1A-CDD3C9F09124}' />
+    </worksheet>
+    <worksheet name='Optimal battery'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Day 1 optimal' name='Clipboard_20190719T152305' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190719T152305'>
+            <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+            <column-instance column='[battery_action]' derivation='Sum' name='[sum:battery_action:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state_of_charge]' derivation='Sum' name='[sum:state_of_charge:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[start]' derivation='Second-Trunc' name='[tsc:start:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190719T152305].[sum:battery_action:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190719T152305].[sum:state_of_charge:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190719T152305].[sum:battery_action:qk] + [Clipboard_20190719T152305].[sum:state_of_charge:qk])</rows>
+        <cols>[Clipboard_20190719T152305].[tsc:start:qk]</cols>
+      </table>
+      <simple-id uuid='{0EFDD353-79C8-4720-8E59-967DFD235F0F}' />
+    </worksheet>
+    <worksheet name='Optimal graph'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='Day 1 optimal' name='Clipboard_20190719T152305' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190719T152305'>
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column-instance column='[load]' derivation='Sum' name='[sum:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Sum' name='[sum:net_flow:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[start]' derivation='Second-Trunc' name='[tsc:start:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[Clipboard_20190719T152305].[sum:net_flow:qk]' field-type='quantitative' fold='true' scope='rows' synchronized='true' type='space' />
+            <format attr='display' class='0' field='[Clipboard_20190719T152305].[sum:net_flow:qk]' scope='rows' value='false' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[Clipboard_20190719T152305].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190719T152305].[sum:load:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[Clipboard_20190719T152305].[:Measure Names]' />
+            </encodings>
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190719T152305].[sum:net_flow:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[Clipboard_20190719T152305].[:Measure Names]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190719T152305].[sum:load:qk] + [Clipboard_20190719T152305].[sum:net_flow:qk])</rows>
+        <cols>[Clipboard_20190719T152305].[tsc:start:qk]</cols>
+      </table>
+      <simple-id uuid='{AA213F51-38EB-4752-89C0-331B53EF66FB}' />
+    </worksheet>
+    <worksheet name='Sheet 1'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column datatype='integer' name='[F1]' role='measure' type='quantitative' />
+            <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+            <column caption='Billing Period' datatype='datetime' name='[billing_period]' role='dimension' type='ordinal' />
+            <column caption='Duration' datatype='integer' name='[duration]' role='measure' type='quantitative' />
+            <column caption='Duration Hrs' datatype='real' name='[duration_hrs]' role='measure' type='quantitative' />
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+            <column-instance column='[billing_period]' derivation='None' name='[none:billing_period:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[start]' derivation='None' name='[none:start:ok]' pivot='key' type='ordinal' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+            <column-instance column='[F1]' derivation='Sum' name='[sum:F1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[battery_action]' derivation='Sum' name='[sum:battery_action:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[duration]' derivation='Sum' name='[sum:duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[duration_hrs]' derivation='Sum' name='[sum:duration_hrs:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[load]' derivation='Sum' name='[sum:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Sum' name='[sum:net_flow:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state_of_charge]' derivation='Sum' name='[sum:state_of_charge:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[Clipboard_20190728T231144].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:battery_action:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:duration:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:duration_hrs:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:F1:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:load:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:state_of_charge:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:net_flow:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[Clipboard_20190728T231144].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Clipboard_20190728T231144].[Multiple Values]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190728T231144].[none:start:ok] / [Clipboard_20190728T231144].[none:billing_period:ok])</rows>
+        <cols>[Clipboard_20190728T231144].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{EA92991A-9DED-4244-AD1D-703233F2B5E8}' />
+    </worksheet>
+    <worksheet name='Sheet 10'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column datatype='integer' name='[F1]' role='measure' type='quantitative' />
+            <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+            <column caption='Duration' datatype='integer' name='[duration]' role='measure' type='quantitative' />
+            <column caption='Duration Hrs' datatype='real' name='[duration_hrs]' role='measure' type='quantitative' />
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+            <column-instance column='[start]' derivation='None' name='[none:start:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[start_date]' derivation='None' name='[none:start_date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='Start Date' datatype='date' name='[start_date]' role='dimension' type='ordinal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+            <column-instance column='[F1]' derivation='Sum' name='[sum:F1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[battery_action]' derivation='Sum' name='[sum:battery_action:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[duration]' derivation='Sum' name='[sum:duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[duration_hrs]' derivation='Sum' name='[sum:duration_hrs:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[load]' derivation='Sum' name='[sum:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Sum' name='[sum:net_flow:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state_of_charge]' derivation='Sum' name='[sum:state_of_charge:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[value]' derivation='Sum' name='[sum:value:qk]' pivot='key' type='quantitative' />
+            <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[Clipboard_20190728T231144].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:battery_action:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:duration:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:duration_hrs:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:F1:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:load:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:net_flow:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:state_of_charge:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:value:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[Clipboard_20190728T231144].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Clipboard_20190728T231144].[Multiple Values]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190728T231144].[none:start:ok] / ([Clipboard_20190728T231144].[none:start_date:ok] / [Clipboard_20190728T231144].[none:state:nk]))</rows>
+        <cols>[Clipboard_20190728T231144].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{9300964B-D77F-4E54-A13F-421D491A49DE}' />
+    </worksheet>
+    <worksheet name='Sheet 11'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column datatype='integer' name='[F1]' role='measure' type='quantitative' />
+            <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+            <column caption='Duration' datatype='integer' name='[duration]' role='measure' type='quantitative' />
+            <column caption='Duration Hrs' datatype='real' name='[duration_hrs]' role='measure' type='quantitative' />
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+            <column-instance column='[start]' derivation='None' name='[none:start:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[start_date]' derivation='None' name='[none:start_date:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='Start Date' datatype='date' name='[start_date]' role='dimension' type='ordinal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+            <column-instance column='[F1]' derivation='Sum' name='[sum:F1:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[battery_action]' derivation='Sum' name='[sum:battery_action:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[duration]' derivation='Sum' name='[sum:duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[duration_hrs]' derivation='Sum' name='[sum:duration_hrs:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[load]' derivation='Sum' name='[sum:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Sum' name='[sum:net_flow:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state_of_charge]' derivation='Sum' name='[sum:state_of_charge:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[value]' derivation='Sum' name='[sum:value:qk]' pivot='key' type='quantitative' />
+            <column caption='Value' datatype='real' name='[value]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[Clipboard_20190728T231144].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:battery_action:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:duration:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:duration_hrs:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:F1:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:load:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:net_flow:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:state_of_charge:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[Clipboard_20190728T231144].[sum:value:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[Clipboard_20190728T231144].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Clipboard_20190728T231144].[Multiple Values]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190728T231144].[none:start:ok] / ([Clipboard_20190728T231144].[none:start_date:ok] / [Clipboard_20190728T231144].[none:state:nk]))</rows>
+        <cols>[Clipboard_20190728T231144].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{44D7AF7B-046C-4C8F-8CB3-F41714F75877}' />
+    </worksheet>
+    <worksheet name='Sheet 12'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190729T151032' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190729T151032'>
+            <column caption='Battery Action' datatype='real' name='[battery_action]' role='measure' type='quantitative' />
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='State Of Charge' datatype='real' name='[state_of_charge]' role='measure' type='quantitative' />
+            <column-instance column='[battery_action]' derivation='Sum' name='[sum:battery_action:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[load]' derivation='Sum' name='[sum:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Sum' name='[sum:net_flow:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[state_of_charge]' derivation='Sum' name='[sum:state_of_charge:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[start]' derivation='Minute-Trunc' name='[tmi:start:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190729T151032].[sum:battery_action:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190729T151032].[sum:load:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190729T151032].[sum:net_flow:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' y-axis-name='[Clipboard_20190729T151032].[sum:state_of_charge:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190729T151032].[sum:battery_action:qk] + ([Clipboard_20190729T151032].[sum:load:qk] + ([Clipboard_20190729T151032].[sum:net_flow:qk] + [Clipboard_20190729T151032].[sum:state_of_charge:qk])))</rows>
+        <cols>[Clipboard_20190729T151032].[tmi:start:qk]</cols>
+      </table>
+      <simple-id uuid='{106C2356-8F79-4DAD-B44A-E52591B5F23F}' />
+    </worksheet>
+    <worksheet name='Sheet 9'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column-instance column='[state]' derivation='None' name='[none:state:nk]' pivot='key' type='nominal' />
+            <column caption='Start' datatype='datetime' name='[start]' role='dimension' type='ordinal' />
+            <column caption='State' datatype='string' name='[state]' role='dimension' semantic-role='[State].[Name]' type='nominal' />
+            <column-instance column='[start]' derivation='Second-Trunc' name='[tsc:start:ok]' pivot='key' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane id='1' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows>([Clipboard_20190728T231144].[tsc:start:ok] / [Clipboard_20190728T231144].[none:state:nk])</rows>
+        <cols />
+      </table>
+      <simple-id uuid='{E02754EF-DBE7-4BDF-B4EF-33E6A18E9555}' />
+    </worksheet>
+    <worksheet name='Success'>
+      <table>
+        <view>
+          <datasources>
+            <datasource name='Clipboard_20190728T231144' />
+          </datasources>
+          <datasource-dependencies datasource='Clipboard_20190728T231144'>
+            <column caption='Load' datatype='real' name='[load]' role='measure' type='quantitative' />
+            <column-instance column='[load]' derivation='Max' name='[max:load:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[net_flow]' derivation='Max' name='[max:net_flow:qk]' pivot='key' type='quantitative' />
+            <column caption='Net Flow' datatype='real' name='[net_flow]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[Clipboard_20190728T231144].[max:load:qk]' />
+              <text column='[Clipboard_20190728T231144].[max:net_flow:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{43BD08B8-4AB3-4EFB-8030-022F01255641}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Dashboard 1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='81875' id='8' param='horz' type='layout-flow' w='98400' x='800' y='17125'>
+            <zone h='81875' id='6' type='layout-basic' w='82400' x='800' y='17125'>
+              <zone h='40937' id='3' name='Graphs' w='82400' x='800' y='58063'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='40938' id='5' name='Graphs (2)' w='82400' x='800' y='17125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='81875' id='7' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='17125'>
+              <zone h='8250' id='9' name='Graphs (2)' pane-specification-id='2' param='[Clipboard_20190728T231144].[:Measure Names]' type='color' w='16000' x='83200' y='17125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='16125' id='10' name='Success' w='98400' x='800' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='800' minheight='800' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='25' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='26' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='121' h='16125' id='10' is-fixed='true' name='Success' w='98400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='40938' id='5' is-fixed='true' name='Graphs (2)' w='82400' x='800' y='17125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone h='8250' id='9' name='Graphs (2)' pane-specification-id='2' param='[Clipboard_20190728T231144].[:Measure Names]' type='color' w='16000' x='83200' y='17125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='40937' id='3' is-fixed='true' name='Graphs' w='82400' x='800' y='58063'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{5F867F8F-0F28-49C5-A937-C15F5A84B87D}' />
+    </dashboard>
+    <dashboard name='Optimal - Day1'>
+      <style />
+      <size maxheight='800' maxwidth='1000' minheight='800' minwidth='1000' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='81875' id='8' param='horz' type='layout-flow' w='98400' x='800' y='17125'>
+            <zone h='81875' id='6' type='layout-basic' w='82400' x='800' y='17125'>
+              <zone h='40937' id='21' name='Optimal battery' w='82400' x='800' y='58063'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+              <zone h='40938' id='19' name='Optimal graph' w='82400' x='800' y='17125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+            <zone fixed-size='160' h='81875' id='7' is-fixed='true' param='vert' type='layout-flow' w='16000' x='83200' y='17125'>
+              <zone h='81875' id='18' type='empty' w='16000' x='83200' y='17125'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone h='16125' id='17' name='Optimal' w='98400' x='800' y='1000'>
+            <zone-style>
+              <format attr='border-color' value='#000000' />
+              <format attr='border-style' value='none' />
+              <format attr='border-width' value='0' />
+              <format attr='margin' value='4' />
+            </zone-style>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='750' minheight='750' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='26' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='27' param='vert' type='layout-flow' w='98400' x='800' y='1000'>
+                <zone fixed-size='121' h='16125' id='17' is-fixed='true' name='Optimal' w='98400' x='800' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='40938' id='19' is-fixed='true' name='Optimal graph' w='82400' x='800' y='17125'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+                <zone fixed-size='280' h='40937' id='21' is-fixed='true' name='Optimal battery' w='82400' x='800' y='58063'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{8DC7CC3F-BE63-40AD-A4DF-C3E7E252F02F}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='93'>
+    <window class='worksheet' name='Sheet 1'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{765F8340-5EEE-48A2-9C43-14D25A5DEE97}' />
+    </window>
+    <window class='dashboard' name='Dashboard 1'>
+      <viewpoints>
+        <viewpoint name='Graphs'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Graphs (2)'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Success' />
+      </viewpoints>
+      <active id='10' />
+      <simple-id uuid='{398327DE-BD5F-484F-92CD-4986CB2D1283}' />
+    </window>
+    <window class='dashboard' name='Optimal - Day1'>
+      <viewpoints>
+        <viewpoint name='Optimal' />
+        <viewpoint name='Optimal battery'>
+          <zoom type='entire-view' />
+        </viewpoint>
+        <viewpoint name='Optimal graph'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{66B14CCD-E38E-4697-8AC6-95BA58BAC6C9}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Graphs'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{51517F42-906C-4864-A66E-3E0BBFC07BCF}' />
+    </window>
+    <window class='worksheet' name='Graphs (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[Clipboard_20190728T231144].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{F4D8BB69-DE40-4F0B-889A-D41057417497}' />
+    </window>
+    <window class='worksheet' name='Graphs(optimal)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='2' param='[Clipboard_20190728T231144].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{60810EC1-2FAA-4A48-ACA4-3D4D01EA125E}' />
+    </window>
+    <window class='worksheet' name='Success'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{2D90C6EE-1D7C-4B2A-84CD-666510A29001}' />
+    </window>
+    <window class='worksheet' name='Optimal'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{C6D40E66-99F9-451D-860E-EC6E53C1FAD5}' />
+    </window>
+    <window class='worksheet' name='Optimal graph'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='1' param='[Clipboard_20190719T152305].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{03AA59D5-DA25-47D2-9DC6-32D16F5EEB5D}' />
+    </window>
+    <window class='worksheet' name='Optimal battery'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{70F27BC5-15E0-4FA4-95D3-3B6DF230D10B}' />
+    </window>
+    <window class='worksheet' name='Sheet 9'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3DE2AB58-EE31-49D2-9650-11620EC6469F}' />
+    </window>
+    <window class='worksheet' name='Sheet 10'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{CD35E76A-71C5-4801-BB60-2FAD633EE05D}' />
+    </window>
+    <window class='worksheet' name='Sheet 11'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{77D3D214-EC23-461D-8536-73639237F2A2}' />
+    </window>
+    <window class='worksheet' name='Sheet 12'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{296EE68F-3A2F-4E76-9036-014FEB7C68DC}' />
+    </window>
+  </windows>
+</workbook>
