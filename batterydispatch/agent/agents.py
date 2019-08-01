@@ -6,6 +6,7 @@ from copy import deepcopy
 from gym.spaces.box import Box, Space
 
 import numpy as np
+import random
 
 from .discretizers import Discretizer, Box_Discretizer
 
@@ -111,7 +112,6 @@ class superAgent():
         }
 
         self.set_policy(greedy_epsilon, args)
-        self.S_A_frequency = {}
 
     def collect_reward(self, reward, state, action=None):
         # This takes a reward for a specific state or state-action
@@ -128,10 +128,12 @@ class superAgent():
     def observe_sars(self, state, action, reward, next_state):
         pass
 
-    def initialize_state_actions(self, default=0, do_nothing_action=0, do_nothing_bonus=0):
+    def initialize_state_actions(self, new_default=0, do_nothing_action=0, do_nothing_bonus=0):
         '''Initializes the S_A Tables for values and frequencies based on the states and actions known to the agent.'''
         if not isinstance(self.discretizer, Box_Discretizer):
             raise NotImplementedError("initializing state space is only set up for 1D Box state space")
+
+        self.default_SA_estimate = new_default
 
         states = self.discretizer.list_all_states()
         np_actions = np.arange(self.actions.n)
@@ -139,7 +141,7 @@ class superAgent():
         for s in states:
             s = tuple(s)
             for a in np_actions:
-                self.S_A_values.setdefault(s, {})[a] = default
+                self.S_A_values.setdefault(s, {})[a] = self.default_SA_estimate
                 self.S_A_frequency.setdefault(s, {})[a] = 0
 
                 if do_nothing_action is not None and a == do_nothing_action:
@@ -297,38 +299,11 @@ class QAgent(superAgent):
         # First, the last step is handled.
         # Then, the next action is selected.
 
-        self.Q_learning(state)
         action = super()._follow_policy(state, actions, period)
         return action
 
-    def Q_learning(self, state=None):
-        if len(self.history) == 0:
-            pass
-        else:
-            last_state, last_action, reward = self.history[-1]
-            prev_estimate = self.S_A_values.setdefault(last_state, {}).get(last_action, self.default_SA_estimate)
-            if state is None:
-                # implies end of episode.
-                greedy_action = 0
-                greedy_action_estimate = 0
-            else:
-                greedy_action = _get_max_dict_val(self.S_A_values[state], self.default_SA_estimate)
-                greedy_action_estimate = self.S_A_values[state][greedy_action]
-
-            self.S_A_values[last_state][last_action] = prev_estimate + \
-                                                       self.learning_rate * (
-                                                       reward + greedy_action_estimate - prev_estimate)
-
-
-    def collect_reward(self, reward, state, action):
-        self.history.append((state, action, reward))
-
     def end_episode(self, reward):
-        #add the final episodic reward to the end of the history
-        self.history[-1] = (self.history[-1][0], self.history[-1][1], self.history[-1][2] + reward)
-
-        # run q-learning and reset history
-        self.Q_learning()
+        # reset history
         self.history = []
 
         # Check if the policy has converged if a patience has been set
@@ -337,6 +312,135 @@ class QAgent(superAgent):
 
         self.past_S_A_values = deepcopy(self.S_A_values.copy())
 
+    def observe_sars(self, state, action, reward, next_state):
+        if (next_state == self.terminal_state).all():
+            greedy_action_estimate = 0
+        else:
+            next_state = tuple(self.discretize_space(next_state))
+            greedy_action = _get_max_dict_val(self.S_A_values[next_state], self.default_SA_estimate)
+            greedy_action_estimate = self.S_A_values[next_state][greedy_action]
+
+        state = tuple(self.discretize_space(state))
+        self.S_A_values[state][action] += self.learning_rate*(reward + greedy_action_estimate -
+                                                                  self.S_A_values[state][action])
+
+        self.history.append((state, action, reward))
+
+class DynaQAgent(superAgent):
+
+    def __init__(self, policy=choose_randomly, args={}, epsilon = 0.1, alpha = 0.15, patience=None, planning_steps=20):
+        super().__init__()
+        self.name = "DynaQ-Learning Agent"
+        self.set_policy(policy, args)
+        self.learning_rate = alpha
+        self.patience=patience
+
+        self.planning_steps = planning_steps
+
+        self.transition_table = np.array([])
+        self.reward_table = {}
+        self.x_lookup = {}
+        self.y_lookup = {}
+        self.state_ix_lookup = {}
+        self.state_list = []
+        self.terminal_state = np.array([0,0,0,0])
+        print("remember to set self.actions = env.action_space!")
+
+    def initialize_state_actions(self, new_default=0, do_nothing_action=0, do_nothing_bonus=0):
+        '''Extends the base Agent classes initialize_state_actions to include details on the transition and reward
+        model used by the algorithm'''
+        super().initialize_state_actions(new_default, do_nothing_action, do_nothing_bonus)
+
+        all_states = self.discretizer.list_all_states()
+        all_states.append(self.terminal_state)
+        all_states = [tuple(s) for s in all_states]
+        self.state_list = all_states
+
+        all_actions = np.arange(self.actions.n)
+
+        all_sa = [(s, a) for a in all_actions for s in all_states]
+
+        self.state_action_list = all_sa
+        self.x_lookup = {(state, action): i for i, (state,action) in enumerate(all_sa)}
+        self.y_lookup = {state: i for i, state in enumerate(all_states)}
+        self.state_ix_lookup = {self.y_lookup[k]: k for k in self.y_lookup}
+        self.sa_ix_lookup = {self.x_lookup[k]: k for k in self.x_lookup}
+        self.transition_table = np.zeros((len(self.x_lookup), len(self.y_lookup)))
+        self.reward_table = {}
+
+    def get_action(self, state, actions, period):
+        # This manages all aspects of the Q-learning algorithm including bootstrapping of the reward.
+        # First, the last step is handled.
+        # Then, the next action is selected.
+
+        action = super()._follow_policy(state, actions, period)
+        return action
+
+    def end_episode(self, reward):
+        # reset history
+        self.history = []
+
+        # Check if the policy has converged if a patience has been set
+        if self.patience is not None:
+            super().check_policy_convergence()
+
+        self.past_S_A_values = deepcopy(self.S_A_values.copy())
+
+    def observe_sars(self, state, action, reward, next_state):
+        if (next_state == self.terminal_state).all():
+            greedy_action_estimate = 0
+            next_state = tuple(self.terminal_state)
+        else:
+            next_state = tuple(self.discretize_space(next_state))
+            greedy_action = _get_max_dict_val(self.S_A_values[next_state], self.default_SA_estimate)
+            greedy_action_estimate = self.S_A_values[next_state][greedy_action]
+
+        state = tuple(self.discretize_space(state))
+        self.S_A_values[state][action] += self.learning_rate*(reward + greedy_action_estimate -
+                                                                  self.S_A_values[state][action])
+
+        self.history.append((state, action, reward))
+
+        # Update the Model
+        # Update the state-action-state transition
+        self.transition_table[self.x_lookup[(state, action)], self.y_lookup[next_state]] += 1
+
+        try:
+            self.reward_table[(state, action, next_state)] += \
+                self.learning_rate * (reward - self.reward_table[state, action, next_state])
+        except KeyError:
+            self.reward_table[(state, action, next_state)] = reward
+
+        for sweeps in range(self.planning_steps):
+            state = random.choice(list(self.S_A_values.keys()))
+            action = random.choice(range(self.actions.n))
+
+            # Get next state predicted by the model:
+            p_sas = self.transition_table[self.x_lookup[(state, action)], :]
+
+            if np.sum(p_sas) == 0:
+                continue
+
+            # Choose randomly from the next states based on their probability of being visited but ignoring terminal
+            p_sas = p_sas / np.sum(p_sas)
+            try:
+                next_state = self.state_ix_lookup[np.random.choice(range(p_sas.size), p=p_sas)]
+            except ValueError:
+                print("Skipping a sweep because of p_sas error!")
+                print(p_sas)
+                print("sum of p_sas={}".format(np.sum(p_sas)))
+                print(self.transition_table[self.x_lookup[(state, action)], :])
+                continue
+            if (next_state == self.terminal_state).all():
+                greedy_action_estimate = 0
+            else:
+                greedy_action = _get_max_dict_val(self.S_A_values[next_state], self.default_SA_estimate)
+                greedy_action_estimate = self.S_A_values[next_state][greedy_action]
+
+            reward = self.reward_table[(state, action, next_state)]
+
+            self.S_A_values[state][action] += self.learning_rate * (reward + greedy_action_estimate -
+                                                                self.S_A_values[state][action])
 
 class ThresholdAgent(superAgent):
     def __init__(self, threshold):
@@ -363,22 +467,37 @@ class MonteCarloAgent(superAgent):
     def get_action(self, state, actions, period):
         action = super()._follow_policy(state, actions, period)
         state = tuple(self.discretize_space(state))
-        self.history.append((state, action))
         return action
 
-    def initialize_state_actions(self, states, actions, default=0, do_nothing_action=None, do_nothing_bonus=1):
-        for s in states:
+    def initialize_state_actions(self, new_default=0, do_nothing_action=None, do_nothing_bonus=1):
+        self.default_SA_estimate = new_default
+        super().initialize_state_actions(new_default, do_nothing_action, do_nothing_bonus)
+
+        all_states = self.discretizer.list_all_states()
+        all_states.append('terminal')
+        self.state_list = all_states
+
+        all_actions = np.arange(self.actions.n)
+
+        all_sa = [(s, a) for a in all_actions for s in all_states]
+
+        for s in all_states:
             s = tuple(s)
-            for a in actions:
-                self.S_A_values.setdefault(s, {})[a] = default
+            for a in all_actions:
+                self.S_A_values.setdefault(s, {})[a] = new_default
                 self.C_S_A.setdefault(s, {})[a] = 0
                 self.S_A_frequency.setdefault(s, {})[a] = 0
                 if do_nothing_action is not None and a == do_nothing_action:
                     self.S_A_values[s][a] += do_nothing_bonus # Break ties in favor of do nothing
 
+    def observe_sars(self, state, action, reward, next_state):
+        state = tuple(self.discretize_space(state))
+        self.history.append((state, action, reward))
+        self.S_A_frequency[state][action] += 1
+
     def end_episode(self, reward):
         if self.subtype == 'on-policy':
-            for s, a in list(set(self.history)):
+            for s, a, r in list(set(self.history)):
                 past_frequency =  self.S_A_frequency.setdefault(s, {}).get(a, 0)
                 past_value = self.S_A_values.setdefault(s, {}).get(a, reward)
                 if self.learning_rate is None:
@@ -387,20 +506,24 @@ class MonteCarloAgent(superAgent):
                 else:
                     self.S_A_values[s][a] = past_value + self.learning_rate * (reward - past_value)
 
-                self.S_A_frequency.setdefault(s, {})[a] = past_frequency + 1
         elif self.subtype == 'off-policy':
-            G = reward # assumes all reward at end of episode
+            G = 0 # assumes all reward at end of episode
             W = 1
             for h in self.history[::-1]:
                 s = h[0]
                 a = h[1]
+                r = h[2]
+
+                G += r
 
                 past_C = self.C_S_A.setdefault(s, {}).get(a, 0)
-                past_value = self.S_A_values.setdefault(s, {}).get(a, 0)
                 self.C_S_A[s][a] += W
+                past_value = self.S_A_values.setdefault(s, {}).get(a, self.default_SA_estimate)
+
                 self.S_A_values[s][a] = past_value + W / self.C_S_A[s][a] * (G - past_value)
 
-                if _get_max_dict_val(self.S_A_values[s]) != a:
+                if max(self.S_A_values[s].values()) != self.S_A_values[s][a]:
+                    print("breaking. Action {} not greedy at state {} given reward {}, S_A_values of {}".format(a, s, G, self.S_A_values[s]))
                     break
                 else:
                     # We know we are taking the greedy action. so, we also know that probability b must be
