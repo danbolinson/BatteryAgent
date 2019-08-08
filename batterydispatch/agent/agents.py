@@ -53,6 +53,12 @@ class superAgent():
         self.discretizer = Discretizer()
         self.discrete = False
         self.actions = Space()
+        self.seed = None
+
+    def set_seed(self, seed):
+        self.seed = seed
+        random.seed(seed)
+        np.random.seed(seed)
 
     def set_discretizer(self, discretizer):
         '''Set the discretizer used by the agent to convert a continuous state space intoo a discret state space.'''
@@ -463,6 +469,7 @@ class MonteCarloAgent(superAgent):
         self.subtype = 'on-policy'
         self.C_S_A = {}
         self.learning_rate = args.get('learning_rate', None)
+        self.terminal_state = np.array([0,0,0,0])
 
     def get_action(self, state, actions, period):
         action = super()._follow_policy(state, actions, period)
@@ -474,7 +481,7 @@ class MonteCarloAgent(superAgent):
         super().initialize_state_actions(new_default, do_nothing_action, do_nothing_bonus)
 
         all_states = self.discretizer.list_all_states()
-        all_states.append('terminal')
+        all_states.append(self.terminal_state)
         self.state_list = all_states
 
         all_actions = np.arange(self.actions.n)
