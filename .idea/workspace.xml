@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d66b5324-7c56-488d-a2b3-12f2ae0ad2df" name="Default" comment="Adhoc Tableau file for analysis">
+      <change afterPath="$PROJECT_DIR$/documents/Poster Presentation - Battery Agent. v2.twbx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/documents/Results_published.twbx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grid_flow_output.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gym_battery_results.db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gym_battery_results_test.db" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="C:\Users\Administrator\PycharmProjects\BatteryAgent" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>reset</find>
+      <find>in None</find>
+      <find>np_ran</find>
+      <find>next(self.episode_step_generator)</find>
+      <find>all</find>
+      <find>state.as</find>
+      <find>state.as_tuple()</find>
+      <find>s, a</find>
+      <find>self.C_S_</find>
+      <find>disc</find>
+      <find>state</find>
+      <find>enumera</find>
+      <find>.follow</find>
+      <find>follow</find>
+      <find>get_</find>
+      <find>list_</find>
+      <find>get_action</find>
+      <find>_follow</find>
+      <find>[state]</find>
+      <find>.options</find>
+      <find>show</find>
+      <find>print</find>
+      <find>reward_table</find>
+      <find>history</find>
+      <find>historical_S_A_values</find>
+      <find>collect_reward</find>
+      <find>default_SA_estimate</find>
+      <find>terminal_stat</find>
+      <find>initia</find>
+      <find>terminal</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>[tuple(state)]</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="gym-battery-agent" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="C:\Users\Administrator\PycharmProjects\BatteryAgent\.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="ProjectId" id="1PPSuLW4msKl2iqpYDd1HS1KJHg" />
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://C:/Users/Administrator/PycharmProjects/BatteryAgent/batterydispatch/agent/discretizers.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gym-battery" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+  </component>
+  <component name="Push.Settings">
+    <force-push-targets>
+      <force-push-target remote-path="origin" branch="gym-battery-agent2" />
+    </force-push-targets>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PycharmProjects\BatteryAgent\batterydispatch\agent" />
+      <recent name="C:\Users\Administrator\PycharmProjects\BatteryAgent\batterydispatch" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.test_app">
+    <configuration default="true" type="tests" factoryName="Attests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="BatteryAgent" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration name="agents" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BatteryAgent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/batterydispatch/agent" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/batterydispatch/agent/agents.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BatteryAgent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/batterydispatch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/batterydispatch/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_1000_random" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BatteryAgent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/batterydispatch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/batterydispatch/run_1000_random.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_app" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="BatteryAgent" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.app" />
+      <item itemvalue="Python.run_1000_random" />
+      <item itemvalue="Python.test_app" />
+      <item itemvalue="Python.agents" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.test_app" />
+        <item itemvalue="Python.agents" />
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.run_1000_random" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d66b5324-7c56-488d-a2b3-12f2ae0ad2df" name="Default" comment="" />
+      <created>1559848672798</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1559848672798</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Background documents">
+      <created>1559850528726</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559850528726</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added comments and loaded twbx file">
+      <created>1560398133980</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1560398133980</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added some notebooks for easier interaction.">
+      <created>1560398157774</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1560398157774</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Defined the Agents class.">
+      <created>1560398195433</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1560398195433</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Added Agents to the System and allowed daily runs.">
+      <created>1560398242211</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1560398242211</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Made the .resources call dependent on package location.">
+      <created>1560398328241</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1560398328241</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Implemented Q-learning agent and made other changes to try and improve learning.">
+      <created>1561003019032</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1561003019032</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Update parameters for monte carlo model">
+      <created>1561005241460</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1561005241460</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Major reconfiguration of the project to align with the open-ei gym framework.">
+      <created>1563334607708</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1563334607708</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Adding in a PrioritySweeping agent. Agent is not working.">
+      <created>1563423216980</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1563423216980</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added the working document used to interact with gym-battery.">
+      <created>1563572253003</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1563572253003</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Cleaned up the helpers function and removed the environment files (relocated to gym-battery)">
+      <created>1563572493967</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1563572493967</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added some comments on Agents. Prioritized Sweeping Agent still broken.">
+      <created>1563572543531</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1563572543531</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Adding in a PrioritySweeping agent. Agent is not working.">
+      <created>1563572555967</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1563572555967</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added minor comments.">
+      <created>1563572584052</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1563572584052</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updating the ipython notebooks">
+      <created>1564626704020</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1564626704020</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Various working documents - to be deleted">
+      <created>1564626745605</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1564626745605</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fixing discretizer bounds">
+      <created>1564626779977</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1564626779977</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fixing discretizer bounds">
+      <created>1564626806524</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1564626806524</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Connect results to sqlite database&#10;">
+      <created>1564626973940</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1564626973940</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Adding a function to run episodes (once, N times, or to convergence)">
+      <created>1565251924094</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1565251924094</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add function to set seeds for agent random libraries.">
+      <created>1565251954274</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1565251954274</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Updates to the results database">
+      <created>1565251978532</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1565251978532</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Add function to log history, the most recent grid_flow, and agent state-action value estimates to sqlite database.">
+      <created>1565252007563</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1565252007563</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Poster presentation - Tableau format">
+      <created>1565252022192</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1565252022192</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Minor changes to results Tableau files">
+      <created>1565252037749</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1565252037749</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Sample document for running analysis">
+      <created>1565252276607</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1565252276607</updated>
+    </task>
+    <task id="LOCAL-00028" summary="ipy">
+      <created>1565252777316</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1565252777316</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Pushing database">
+      <created>1565275647889</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1565275647889</updated>
+    </task>
+    <task id="LOCAL-00030" summary="ipynb for experiments supporting major research project">
+      <created>1565773037409</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1565773037409</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Build calculation of original episodic reward into the history function to accomodate multiple days.">
+      <created>1565773099148</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1565773099148</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Final tableau poster presentation">
+      <created>1565773117970</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1565773117970</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Adhoc Tableau file for analysis">
+      <created>1565773128371</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1565773128371</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="range">
+                    <value>
+                      <list>
+                        <option value="HEAD..gym-battery-agent" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="2">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="range">
+                    <value>
+                      <list>
+                        <option value="HEAD..gym-battery-agent" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_TABS">
+      <set>
+        <option value="1" />
+        <option value="2" />
+      </set>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented Q-learning agent and made other changes to try and improve learning." />
+    <MESSAGE value="Update parameters for monte carlo model" />
+    <MESSAGE value="Major reconfiguration of the project to align with the open-ei gym framework." />
+    <MESSAGE value="Added the working document used to interact with gym-battery." />
+    <MESSAGE value="Cleaned up the helpers function and removed the environment files (relocated to gym-battery)" />
+    <MESSAGE value="Added some comments on Agents. Prioritized Sweeping Agent still broken." />
+    <MESSAGE value="Adding in a PrioritySweeping agent. Agent is not working." />
+    <MESSAGE value="Added minor comments." />
+    <MESSAGE value="Updating the ipython notebooks" />
+    <MESSAGE value="Various working documents - to be deleted" />
+    <MESSAGE value="Fixing discretizer bounds" />
+    <MESSAGE value="Connect results to sqlite database&#10;" />
+    <MESSAGE value="Adding a function to run episodes (once, N times, or to convergence)" />
+    <MESSAGE value="Add function to set seeds for agent random libraries." />
+    <MESSAGE value="Updates to the results database" />
+    <MESSAGE value="Add function to log history, the most recent grid_flow, and agent state-action value estimates to sqlite database." />
+    <MESSAGE value="Poster presentation - Tableau format" />
+    <MESSAGE value="Minor changes to results Tableau files" />
+    <MESSAGE value="Sample document for running analysis" />
+    <MESSAGE value="ipy" />
+    <MESSAGE value="Pushing database" />
+    <MESSAGE value="ipynb for experiments supporting major research project" />
+    <MESSAGE value="Build calculation of original episodic reward into the history function to accomodate multiple days." />
+    <MESSAGE value="Final tableau poster presentation" />
+    <MESSAGE value="Adhoc Tableau file for analysis" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adhoc Tableau file for analysis" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/batterydispatch/agent/agents.py</url>
+          <line>515</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/batterydispatch/agent/agents.py</url>
+          <line>313</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/batterydispatch/agent/agents.py</url>
+          <line>450</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/batterydispatch/agent/functions/log_history.py</url>
+          <line>61</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="greedy_action_estimate" />
+        <watch expression="self.S_A_values[last_state][last_action]" />
+        <watch expression="self.P_queue" />
+        <watch expression="self.C_S_A[s][a] " />
+        <watch expression=" self.S_A_values[s][a]" />
+        <watch expression="self.S_A_frequency[s][a]" language="Python" />
+        <watch expression="self.S_A_values[s][a]" />
+        <watch expression=" W / self.C_S_A[s][a]" />
+        <watch expression="self.reward_table[(state, action, next_state)]" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>
